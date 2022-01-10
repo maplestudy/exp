@@ -107,7 +107,7 @@
                 }, {
                     id: 2,
                     label: "비약2 210~219",
-                    value: 0
+                    value: 1
                 }, {
                     id: 3,
                     label: "비약3 220~229",
@@ -165,36 +165,34 @@
                     return;
                 }
                 var c_level = parseInt(this.character.level);
-                var c_per = parseInt(this.character.percentage)/100;
+                var c_per = parseFloat(this.character.percentage)/100;
                 if(c_level<200 || c_per >1){
                     this.dialog = !this.dialog;
                     return;
                 }
-                var exp_cur = 0;
-                var tmp =0;
-                //~209 경험치
+                var cur_exp = 0;
+                var tmp = 0;
                 for(let j=0;j<this.items.length;j++){
                     var tmp_level = 200+ 10*(j+1);
                     for (let i = 0; i < this.items[j].value; i++) {
-                        exp_cur = this.exp[c_level].exp * c_per; //현재 경험치
+                        cur_exp = this.exp[c_level].exp * c_per; //현재 경험치
                         if(c_level<tmp_level){ //무조건 1업
                             c_level =c_level+1; //레벨업함
-                            c_per = exp_cur / this.exp[c_level].exp; //그걸로 퍼센트 계산
+                            c_per = cur_exp/ this.exp[c_level].exp; //그걸로 퍼센트 계산
                         }else{ //경험치 209 고정
-                                tmp = exp_cur+this.exp[tmp_level-1].exp;// 현재경험치 + 레벨경험치
+                                tmp = cur_exp+this.exp[tmp_level-1].exp;// 현재경험치 + 레벨경험치
                             // 그게 현재 레벨 경험치보다 초과면 레벨+1
                                 if(tmp>this.exp[c_level].exp){
-                                    exp_cur = tmp- this.exp[c_level].exp;
+                                    cur_exp = tmp- this.exp[c_level].exp;
                                     c_level =c_level+1; //레벨업함
-                                    c_per = exp_cur/ this.exp[c_level].exp; //그걸로 퍼센트 계산
+                                    c_per = cur_exp / this.exp[c_level].exp; //그걸로 퍼센트 계산
                                 }else{// 아니면 레벨 유지, 퍼센트만 늘리기
-                                    exp_cur = tmp;
-                                    c_per = exp_cur/ this.exp[c_level].exp;
+                                    cur_exp = tmp;
+                                    c_per = cur_exp / this.exp[c_level].exp;
                                 }
                         }
                     }
                 }
-
                 this.character.cal_level=c_level;
                 this.character.cal_percentage=c_per;
 

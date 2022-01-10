@@ -55,10 +55,10 @@ export default {
         items: [
           { icon: "calculate", text: "경험치계산기", path: "/" },
             { divider: true },
-            { icon: "info", text: "About", path: "about" },
-            { divider: true },
-            { heading: '추후에 추가 예정 기능' },
-            { icon: "event_available", text: "Event", path: "event" },
+            // { icon: "info", text: "About", path: "about" },
+            // { divider: true },
+            // { heading: '추후에 추가 예정 기능' },
+            // { icon: "event_available", text: "Event", path: "event" },
         ]
     }),
       methods:{
