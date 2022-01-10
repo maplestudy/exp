@@ -102,23 +102,23 @@
             items: [
                 {
                     id: 1,
-                    label: "비약1 200~209",
+                    label: "비약1 ~209",
                     value: 0
                 }, {
                     id: 2,
-                    label: "비약2 210~219",
-                    value: 1
+                    label: "비약2 ~219",
+                    value: 0
                 }, {
                     id: 3,
-                    label: "비약3 220~229",
+                    label: "비약3 ~229",
                     value: 0
                 }, {
                     id: 4,
-                    label: "태성비 230~239",
+                    label: "태성비 ~239",
                     value: 0
                 }, {
                     id: 5,
-                    label: "극성비 240~249",
+                    label: "극성비 ~249",
                     value: 0
                 }
             ],
