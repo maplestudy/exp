@@ -53,7 +53,7 @@ export default {
     data: () => ({
         drawer: null,
         items: [
-          { icon: "calculate", text: "경험치계산기", path: "/" },
+          { icon: "calculate", text: "비약 경험치 계산기", path: "/" },
             { divider: true },
             // { icon: "info", text: "About", path: "about" },
             // { divider: true },

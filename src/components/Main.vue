@@ -1,64 +1,125 @@
 <template>
 
     <v-container>
-        <v-row>
-            <v-col cols="2">
-                <v-text-field
-                    v-model="character.level"
-                    label="레벨"
-                    required="required"
-                    :rules="rules.level"
-                    outline="outline"></v-text-field>
-            </v-col>
-            <v-col cols="2">
-                <v-text-field
-                    v-model="character.percentage"
-                    label="퍼센트"
-                    required="required"
-                    outline="outline"
-                    :rules="rules.percen"
-                    suffix="%"></v-text-field>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col cols="2" v-if="exp.length!=0">
-                <v-btn
-                    color="primary"
-                    class="mb-3"
-                    block="block"
-                    large="large"
-                    @click="calculate()">계산</v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col cols="2">
-                <v-text-field
-                    v-model="c_level"
-                    label="레벨"
-                    readonly
-                    outline="outline"></v-text-field>
-            </v-col>
-            <v-col cols="2">
-                <v-text-field
-                    v-model="c_per"
-                    label="퍼센트"
-                    readonly
-                    outline="outline"
-                    suffix="%"></v-text-field>
-            </v-col>
-        </v-row>
+        <!--pc-->
+         <v-layout hidden-xs-only>
+            <v-row>
+                <v-col cols="2">
+                    <v-text-field
+                        v-model="character.level"
+                        label="레벨"
+                        required="required"
+                        :rules="rules.level"
+                        outline="outline"></v-text-field>
+                </v-col>
+                <v-col cols="2" sm="3" xs="3">
+                    <v-text-field
+                        v-model="character.percentage"
+                        label="퍼센트"
+                        required="required"
+                        outline="outline"
+                        :rules="rules.percen"
+                        suffix="%"></v-text-field>
+                </v-col>
+                <v-spacer></v-spacer>
+                <v-col cols="2"  v-if="exp.length!=0">
+                    <v-btn
+                        color="primary"
+                        class="mb-3"
+                        block="block"
+                        large="large"
+                        @click="calculate()">계산</v-btn>
+                </v-col>
+                <v-spacer></v-spacer>
+                <v-col cols="2">
+                    <v-text-field
+                        v-model="c_level"
+                        label="레벨"
+                        readonly
+                        outline="outline"></v-text-field>
+                </v-col>
+                <v-col cols="2" sm="3" xs="3">
+                    <v-text-field
+                        v-model="c_per"
+                        label="퍼센트"
+                        readonly
+                        outline="outline"
+                        suffix="%"></v-text-field>
+                </v-col>
+            </v-row>
+        </v-layout>
+        <!--mobile-->
+        <v-layout hidden-sm-and-up>
+            <v-row dense >
+                    <v-col cols="4">
+                        <v-text-field
+                            v-model="character.level"
+                            label="레벨"
+                            required="required"
+                            :rules="rules.level"
+                            outline="outline"></v-text-field>
+                    </v-col>
+                    <v-col cols="8">
+                        <v-text-field
+                            v-model="character.percentage"
+                            label="퍼센트"
+                            required="required"
+                            outline="outline"
+                            :rules="rules.percen"
+                            suffix="%"></v-text-field>
+                    </v-col>
+                <v-col cols="12"  v-if="exp.length!=0">
+                    <v-btn
+                        color="primary"
+                        class="mb-3"
+                        block="block"
+                        large="large"
+                        @click="calculate()">계산</v-btn>
+                </v-col>
+                <v-col cols="4">
+                    <v-text-field
+                        v-model="c_level"
+                        label="레벨"
+                        readonly
+                        outline="outline"></v-text-field>
+                </v-col>
+                <v-col cols="8">
+                    <v-text-field
+                        v-model="c_per"
+                        label="퍼센트"
+                        readonly
+                        outline="outline"
+                        suffix="%"></v-text-field>
+                </v-col>
+            </v-row>
+        </v-layout>
 
         <v-divider class="mb-6"></v-divider>
         <v-row>
+
             <template v-for="(item, i) in items">
                 <v-card-text :key="i" align="center">
-                    <v-slider
-                        v-model="item.value"
-                        :label="item.label"
-                        step="1"
-                        ticks="always"
-                        tick-size="4"
-                        thumb-label="always"
-                        :min="0"
-                        :max="10"></v-slider>
+                    <v-col cols="12">
+                        <v-slider
+                            v-model="item.value"
+                            :label="item.label"
+                            step="1"
+                            ticks="always"
+                            tick-size="4"
+                            thumb-label="always"
+                            :min="0"
+                            :max="8"
+                            class="align-center">     
+                            <!-- <template v-slot:append>
+                                <v-text-field
+                                v-model="item.value"
+                                class="mt-0 pt-0"
+                                type="number"
+                                style="width: 60px"
+                                ></v-text-field>
+                            </template>        -->
+                        </v-slider>
+                    </v-col>
                 </v-card-text>
             </template>
         </v-row>
@@ -201,4 +262,8 @@
         }
     };
 </script>
-<style></style>
+<style>
+
+
+
+</style>
